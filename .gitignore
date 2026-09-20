@@ -1,0 +1,48 @@
+# --- Virtual environments ---------------------------------------------------
+venv/
+.venv/
+env/
+
+# --- External projects checked out locally ----------------------------------
+# Lyricsmith is a separate repository, used as the transcription fallback.
+Lyricsmith/
+
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Secrets ----------------------------------------------------------------
+.env
+
+# --- Outputs (heavy and reproducible) ---------------------------------------
+outputs/downloads/*
+!outputs/downloads/.gitkeep
+outputs/final/*
+!outputs/final/.gitkeep
+outputs/review/*
+!outputs/review/.gitkeep
+
+# --- Model checkpoints ------------------------------------------------------
+models/*
+!models/.gitkeep
+
+# --- Fonts (redistributed under their own licence, see the README) ----------
+assets/fonts/*
+!assets/fonts/.gitkeep
+
+# --- PyInstaller build ------------------------------------------------------
+build/
+dist/
+
+# --- MkDocs output ----------------------------------------------------------
+site/
+
+# --- OS and editors ---------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

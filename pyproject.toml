@@ -1,0 +1,66 @@
+[project]
+name = "soong-lyrics-studio"
+version = "0.1.0"
+description = "Lyrics overlay video pipeline: a music video URL turned into a blurred clip with aligned lyrics burned in."
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = { file = "LICENSE" }
+
+dependencies = [
+    # Deep learning core. torch and torchaudio come from the CUDA index, see
+    # [tool.uv.sources]. Python 3.13 needs cp313 wheels, which start at 2.6.
+    "torch>=2.6",
+    "torchaudio>=2.6",
+    # Download, lyrics lookup, forced alignment and desktop UI.
+    "yt-dlp>=2024.1.0",
+    "lyricsgenius>=3.0.1",
+    "ctc-forced-aligner",
+    "PySide6>=6.6.0",
+    # Configuration and utilities.
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0",
+    "typer>=0.12.0",
+    # Executable packaging.
+    "pyinstaller>=6.3.0",
+    # Dependencies of the transcription fallback, which runs the Lyricsmith
+    # code from a local checkout rather than from a published package.
+    "demucs>=4.0.0",
+    # The Lyricsmith transcription library targets transformers 4.57, so the
+    # 4.x Whisper import paths are kept; 5.x refactored that API heavily.
+    "transformers>=4.40.0,<5.0",
+    "soundfile>=0.12.1",
+    "librosa>=0.10.0",
+    "scipy>=1.13.0",
+    "pyloudnorm>=0.1.1",
+    "noisereduce>=3.0.0",
+    "huggingface-hub>=0.24.0",
+]
+
+[dependency-groups]
+# Synced by default by `uv sync`, skipped with `--no-dev`.
+dev = ["pytest>=8.0"]
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+]
+
+# --- uv configuration -------------------------------------------------------
+# torch and torchaudio come from the PyTorch CUDA index, not from PyPI.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu124" }]
+torchaudio = [{ index = "pytorch-cu124" }]
+ctc-forced-aligner = { git = "https://github.com/MahmoudAshraf97/ctc-forced-aligner.git" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true # used ONLY by the packages that reference it above
+
+# This project is an application, not an installable library.
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["Lyricsmith", ".venv", "build", "dist"]

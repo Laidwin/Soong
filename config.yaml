@@ -1,0 +1,64 @@
+# Central configuration of the lyrics overlay video pipeline.
+# No tunable setting is hard coded in the Python code: everything lives here.
+
+download:
+  format: "bestvideo[height<=1080]+bestaudio/best"
+  output_dir: "./outputs/downloads"
+
+genius:
+  access_token_env: "GENIUS_ACCESS_TOKEN"
+  timeout_seconds: 10
+  min_match_score: 0.75
+
+lyricsmith:
+  # Local checkout of the Lyricsmith project, used only as a fallback text
+  # source. It is a separate repository, not a pip dependency, and it is git
+  # ignored here: point this at wherever you cloned it.
+  project_dir: "./Lyricsmith"
+  # Defaults to <project_dir>/config.yaml when left empty.
+  config_path: ""
+  quality_preset: "balanced"
+  separate: true # let Demucs isolate the vocals before transcribing
+
+review:
+  require_manual_review: true # always enforced when the text comes from the fallback
+  review_dir: "./outputs/review" # only used by the command line review file
+  blocking: true
+
+forced_alignment:
+  language: "fra"
+  device: "cuda"
+  batch_size: 8
+  romanize: true
+  star_frequency: "segment"
+  low_score_threshold: 0.30 # below this score a line is spread proportionally
+
+subtitles:
+  mode: "line" # line | word
+  font_path: "./assets/fonts/Montserrat-Bold.ttf"
+  font_size: 54
+  font_color: "white"
+  outline_color: "black"
+  outline_width: 3
+  position: "center" # bottom | center | top
+  margin_px: 150 # distance to the bottom or top edge
+  fade_ms: 150
+  min_cue_duration_ms: 400 # shorter cues would flash by unreadably
+
+video:
+  blur:
+    filter: "gblur"
+    sigma: 100
+  output_dir: "./outputs/final"
+  # Encoder: "libx264" (CPU, portable) or "h264_nvenc"/"hevc_nvenc" (NVIDIA GPU,
+  # much faster when a supported card is available).
+  codec: "h264_nvenc"
+  crf: 18 # libx264: CRF; nvenc: the equivalent -cq level
+  preset: "medium" # libx264: ultrafast..veryslow; nvenc: p1..p7 or slow|medium|fast
+  copy_audio: true
+
+gui:
+  window_title: "Soong Lyrics Studio"
+  window_width: 1000
+  window_height: 700
+  theme: "dark" # dark | light
