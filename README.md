@@ -65,7 +65,7 @@ any presentation layer.
   and point `subtitles.font_path` in `config.yaml` at it.
 - A [Genius API token](https://genius.com/api-clients) for the preferred text
   source. Without it, every track goes through the transcription fallback.
-- Optional: a local checkout of **Lyricsmith**, the separate transcription
+- Optional: a local checkout of [**Lyricsmith**](https://github.com/Laidwin/Lyricsmith), the separate transcription
   project this pipeline uses as its fallback text source, with
   `lyricsmith.project_dir` in `config.yaml` pointing at it. Without it, tracks
   that Genius does not know cannot be processed.
