@@ -10,6 +10,7 @@ and renders a blurred video with the lyrics on screen.
 [![Documentation](https://img.shields.io/badge/docs-laidwin.github.io%2FSoong-blue)](https://laidwin.github.io/Soong/)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Docs built with Kiln](https://img.shields.io/badge/docs%20built%20with-Kiln-f76b15)](https://github.com/Laidwin/kiln)
 
 [**Documentation**](https://laidwin.github.io/Soong/) · [**Quick start**](#quick-start)
 
