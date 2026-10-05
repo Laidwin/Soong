@@ -1,4 +1,6 @@
-# Contributing
+---
+title: Contributing
+---
 
 ## Running the tests
 
@@ -65,7 +67,7 @@ LyricsSource(config, transcriber=MyTranscriber())
 ```
 
 Text obtained that way is fallback text, so it goes through the mandatory
-review. [Library](library.md) has the full set of injection points.
+review. [Library](/library/) has the full set of injection points.
 
 ## Adding a front end
 
@@ -88,22 +90,23 @@ the Lyricsmith transcription library targets the 4.x Whisper import paths.
 
 ## Working on the documentation
 
-The pages under `docs/` are Markdown, readable on GitHub, and they build into
-this site with MkDocs and the Material theme. Both live in a `docs` dependency
-group, so an ordinary `uv sync` does not install them.
+The pages under `docs/` are Markdown, and they build into this site with
+[Kiln](https://github.com/Laidwin/kiln), configured by `docs.yml` at the
+repository root. Kiln runs in Docker, so nothing is added to the Python
+environment.
 
 ```bash
-uv run --group docs mkdocs serve   # live reload on http://127.0.0.1:8000
-uv run --group docs mkdocs build   # static site in site/, git ignored
+docker run --rm -p 4321:4321 -v "$PWD":/project ghcr.io/laidwin/kiln serve   # live reload on http://localhost:4321
+docker run --rm -v "$PWD":/project ghcr.io/laidwin/kiln build                # static site in site/, git ignored
 ```
 
-Two conventions keep both rendering paths working:
+Two conventions keep the site working:
 
-- **Link between pages with relative Markdown paths**, such as
-  `[Configuration](configuration.md)`. GitHub and MkDocs both resolve those.
-- **Never link out of `docs/`.** A link to a file at the repository root works
-  on GitHub and breaks the site build, so name such files in code formatting
-  instead.
+- **Link between pages with absolute paths**, such as
+  `[Configuration](/configuration/)`. Kiln adds the base path of the published
+  site.
+- **Never link out of `docs/`.** Name files at the repository root in code
+  formatting instead.
 
-A new page also goes into the `nav` list in `mkdocs.yml`, otherwise the
-validation settings report it as omitted.
+A new page also goes into the `sidebar` list in `docs.yml`, otherwise it is
+built but not listed in the navigation.

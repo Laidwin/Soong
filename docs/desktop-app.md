@@ -1,4 +1,6 @@
-# Desktop app
+---
+title: Desktop app
+---
 
 ```bash
 uv run python gui_main.py
@@ -9,7 +11,7 @@ proofread the lyrics while listening to the track, and check the alignment by
 ear before paying for a render.
 
 It is built with PySide6, under the LGPL, which is what makes shipping a
-standalone executable possible. See [Packaging](packaging.md).
+standalone executable possible. See [Packaging](/packaging/).
 
 ## The five screens
 
@@ -57,10 +59,11 @@ Validating releases the worker thread immediately and the run continues into
 the alignment. There is no second run and no file to edit, unlike the command
 line.
 
-!!! note "Why there is no verse seeking here"
-    Alignment has not happened yet at this point, so no verse has a timestamp
-    to seek to. The player is there to listen to the track while proofreading.
-    Seeking per verse is the next screen.
+:::note[Why there is no verse seeking here]
+Alignment has not happened yet at this point, so no verse has a timestamp
+to seek to. The player is there to listen to the track while proofreading.
+Seeking per verse is the next screen.
+:::
 
 ## 4. Alignment check
 
@@ -89,10 +92,10 @@ file manager, and a button that returns to the URL screen for another video.
 The pipeline runs in a worker thread and never touches a widget. The window
 stays responsive during the download, the transcription, the alignment and the
 render, and the two screens that need an answer block that worker rather than
-the interface. [Architecture](architecture.md) describes the handoff.
+the interface. [Architecture](/architecture/) describes the handoff.
 
 ## Theme
 
 `gui.theme: dark` applies the bundled stylesheet. Any other value keeps the
 native Qt look of the platform. The window title and initial size are
-configurable too, under `gui` in [Configuration](configuration.md).
+configurable too, under `gui` in [Configuration](/configuration/).

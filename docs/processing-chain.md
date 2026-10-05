@@ -1,4 +1,6 @@
-# Processing chain
+---
+title: Processing chain
+---
 
 A run applies these steps, always in this order:
 
@@ -74,11 +76,12 @@ vendored `heartlib/src` are put on `sys.path`, its `pipeline` package is
 imported, and the configured quality preset is applied. Only the `lyrics` field
 is read.
 
-!!! note "Why the transcription timestamps are ignored"
-    The transcription model was never trained to preserve Whisper timestamp
-    tokens. In practice it returns a single segment covering the whole track,
-    from 0.0 to 0.0. Timing comes from step 4 instead, which is exactly what
-    that step exists for.
+:::note[Why the transcription timestamps are ignored]
+The transcription model was never trained to preserve Whisper timestamp
+tokens. In practice it returns a single segment covering the whole track,
+from 0.0 to 0.0. Timing comes from step 4 instead, which is exactly what
+that step exists for.
+:::
 
 ## 3. Review
 
@@ -86,8 +89,8 @@ Text from Genius is considered reliable and goes straight through. Text from a
 transcription is not rendered until a human has validated it, because a
 transcription error propagates into the timing and then into the picture.
 
-The desktop app shows the [review screen](desktop-app.md). The command line
-writes a [review file](output.md) and stops with exit code 2.
+The desktop app shows the [review screen](/desktop-app/). The command line
+writes a [review file](/output/) and stops with exit code 2.
 
 Both paths end the same way: `ReviewProvider.request_review()` returns the
 final text, possibly corrected.
@@ -127,7 +130,7 @@ frames of text on fast passages.
 ## 6. Render
 
 One ffmpeg pass blurs the picture and draws every cue, with `-progress pipe:1`
-parsed to report the percentage. [Output format](output.md) covers the
+parsed to report the percentage. [Output format](/output/) covers the
 filtergraph, the quoting and the encoder arguments.
 
 ## Where each step lives

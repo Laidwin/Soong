@@ -1,4 +1,6 @@
-# Configuration
+---
+title: Configuration
+---
 
 Every tunable setting lives in `config.yaml` at the project root. Nothing is
 hard coded in the Python code, so changing behaviour never means editing a
@@ -53,7 +55,7 @@ is a constant in the code rather than a setting.
 
 Raising `min_match_score` means fewer wrong lyrics and more fallback runs, each
 costing a transcription and a human review. Lowering it does the opposite.
-[Processing chain](processing-chain.md) explains how the score is computed.
+[Processing chain](/processing-chain/) explains how the score is computed.
 
 ### `lyricsmith`
 
@@ -85,9 +87,10 @@ Turning `separate` off is faster and noticeably less accurate.
 | `star_frequency` | str | `segment` | Where star tokens may absorb audio with no matching text. |
 | `low_score_threshold` | float | `0.30` | Below this mean confidence, a verse is spread proportionally instead. |
 
-!!! note "`language` is the setting to check first"
-    A wrong ISO 639-3 code is by far the most common cause of a globally bad
-    alignment. It is `fra`, not `fr`.
+:::note[`language` is the setting to check first]
+A wrong ISO 639-3 code is by far the most common cause of a globally bad
+alignment. It is `fra`, not `fr`.
+:::
 
 ### `subtitles`
 

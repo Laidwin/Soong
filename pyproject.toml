@@ -40,10 +40,6 @@ dependencies = [
 [dependency-groups]
 # Synced by default by `uv sync`, skipped with `--no-dev`.
 dev = ["pytest>=8.0"]
-docs = [
-    "mkdocs>=1.6",
-    "mkdocs-material>=9.5",
-]
 
 # --- uv configuration -------------------------------------------------------
 # torch and torchaudio come from the PyTorch CUDA index, not from PyPI.

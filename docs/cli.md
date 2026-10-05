@@ -1,4 +1,6 @@
-# Command line
+---
+title: Command line
+---
 
 ```bash
 uv run python main.py process "https://youtube.com/watch?v=..."
@@ -66,11 +68,12 @@ the validated text is used, and the run continues into the alignment.
 The download is not repeated, since the files are already in
 `outputs/downloads/`. The transcription is, unless Genius answers this time.
 
-!!! warning "Turning the review off"
-    `review.require_manual_review: false` or `review.blocking: false` renders
-    the raw transcription unchecked. A transcription error propagates into the
-    timing and then into the picture, so this is a trade for batch experiments,
-    not a default worth keeping.
+:::caution[Turning the review off]
+`review.require_manual_review: false` or `review.blocking: false` renders
+the raw transcription unchecked. A transcription error propagates into the
+timing and then into the picture, so this is a trade for batch experiments,
+not a default worth keeping.
+:::
 
 ## Logging
 

@@ -1,4 +1,6 @@
-# Soong
+---
+title: Soong
+---
 
 Soong turns a music video into a lyrics video. It downloads the clip, gets the
 lyrics text from **Genius** or from a local **Lyricsmith** transcription, aligns
@@ -60,14 +62,14 @@ the whole track and Genius provides no timing at all.
 
 | Page | What it covers |
 | --- | --- |
-| [Installation](installation.md) | Python, ffmpeg, a font, a Genius token, a Lyricsmith checkout |
-| [Desktop app](desktop-app.md) | The five screens, the review step, the alignment check |
-| [Command line](cli.md) | Arguments, exit codes, the review file cycle |
-| [Library](library.md) | Driving the pipeline from your own code |
-| [Configuration](configuration.md) | Every key of `config.yaml` |
-| [Processing chain](processing-chain.md) | The six steps of a run, in order |
-| [Output format](output.md) | The rendered file, the review file, the cue modes |
-| [Architecture](architecture.md) | Layers, design decisions, threading, testing |
-| [Packaging](packaging.md) | Building the standalone executable |
-| [Troubleshooting](troubleshooting.md) | What each failure means |
-| [Contributing](contributing.md) | Tests, conventions, extension points |
+| [Installation](/installation/) | Python, ffmpeg, a font, a Genius token, a Lyricsmith checkout |
+| [Desktop app](/desktop-app/) | The five screens, the review step, the alignment check |
+| [Command line](/cli/) | Arguments, exit codes, the review file cycle |
+| [Library](/library/) | Driving the pipeline from your own code |
+| [Configuration](/configuration/) | Every key of `config.yaml` |
+| [Processing chain](/processing-chain/) | The six steps of a run, in order |
+| [Output format](/output/) | The rendered file, the review file, the cue modes |
+| [Architecture](/architecture/) | Layers, design decisions, threading, testing |
+| [Packaging](/packaging/) | Building the standalone executable |
+| [Troubleshooting](/troubleshooting/) | What each failure means |
+| [Contributing](/contributing/) | Tests, conventions, extension points |

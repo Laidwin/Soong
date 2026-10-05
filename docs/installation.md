@@ -1,4 +1,6 @@
-# Installation
+---
+title: Installation
+---
 
 ## What you need
 
@@ -86,4 +88,4 @@ uv run pytest -q
 The suite needs no GPU, no ffmpeg, no network and no model, so it passes on a
 machine where only `uv sync` has been run. If it passes, the code is sound and
 anything that still fails is an environment problem, which
-[Troubleshooting](troubleshooting.md) covers.
+[Troubleshooting](/troubleshooting/) covers.

@@ -1,4 +1,6 @@
-# Troubleshooting
+---
+title: Troubleshooting
+---
 
 ## Setup
 
@@ -70,7 +72,7 @@ error or an unreadable audio file.
 ### CUDA out of memory
 
 Lower `forced_alignment.batch_size`, or set `forced_alignment.device` to `cpu`,
-which is slower and has no VRAM limit. [Configuration](configuration.md) lists
+which is slower and has no VRAM limit. [Configuration](/configuration/) lists
 the changes in order of effect. The aligner already switches to the CPU on its
 own when CUDA is not available at all.
 

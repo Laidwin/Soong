@@ -1,4 +1,6 @@
-# Output format
+---
+title: Output format
+---
 
 ## What a run writes
 

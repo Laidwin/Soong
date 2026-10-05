@@ -1,4 +1,6 @@
-# Library
+---
+title: Library
+---
 
 The pipeline is importable. `main.py` is about eighty lines and is the smallest
 complete example of what follows.
@@ -52,8 +54,8 @@ def on_event(event):
 pipeline.run(url, on_event=on_event)
 ```
 
-`on_event` is optional. [Processing chain](processing-chain.md) lists what each
-step emits, and [Architecture](architecture.md) documents the payloads.
+`on_event` is optional. [Processing chain](/processing-chain/) lists what each
+step emits, and [Architecture](/architecture/) documents the payloads.
 
 ## Replacing the human review
 

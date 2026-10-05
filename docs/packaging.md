@@ -1,4 +1,6 @@
-# Packaging
+---
+title: Packaging
+---
 
 ```bash
 uv run pyinstaller build_exe.spec
@@ -41,10 +43,11 @@ megabytes to a few gigabytes. That is normal, not a misconfiguration.
 The first launch of a one file build is slow, because the archive is unpacked
 to a temporary directory.
 
-!!! warning "Test on a machine without Python"
-    DLL errors are common with PyInstaller and CUDA, and they only appear
-    outside the development machine, where the missing library happens to be
-    installed anyway.
+:::caution[Test on a machine without Python]
+DLL errors are common with PyInstaller and CUDA, and they only appear
+outside the development machine, where the missing library happens to be
+installed anyway.
+:::
 
 ## Runtime layout
 
